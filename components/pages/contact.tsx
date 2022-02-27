@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
           className="flex flex-col space-y-8 w-full h-full"
           onSubmit={handleSubmit(onSend)}
         >
-          <div className="flex flex-col md:flex-row space-y-4 md:space-x-4 justify-between w-full">
+          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-between w-full">
             <input
               className={cn("p-4 border rounded-lg basis-1/2", {
                 "border-red-400": !!errors.name,
