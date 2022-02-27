@@ -1,3 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "material-icons/iconfont/material-icons.css";
+@import "./introduction.css";
+@import "./experiences.css";
+
 html,
 body {
   padding: 0;

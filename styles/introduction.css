@@ -1,0 +1,25 @@
+.introduction #CodeLineOne {
+  animation: writeCode 1.5s linear;
+  transform-origin: 13rem;
+}
+
+.introduction #CodeLineTwo {
+  animation: writeCode 1.5s linear;
+  animation-delay: 0.5s;
+  transform-origin: 12rem;
+}
+
+.introduction #CodeLineThree {
+  animation: writeCode 1.5s linear;
+  animation-delay: 1s;
+  transform-origin: 12rem;
+}
+
+@keyframes writeCode {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+}
