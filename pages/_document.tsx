@@ -19,7 +19,7 @@ class MyDocument extends Document {
         <Head />
         <body
           lang={locale}
-          className="bg-white text-black dark:bg-black/50 dark:text-white"
+          className="bg-white text-black dark:bg-gray-700 dark:text-white"
         >
           <Main />
           <NextScript />

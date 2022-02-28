@@ -88,22 +88,28 @@ const Contact: React.FC = () => {
         >
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-between w-full">
             <input
-              className={cn("p-4 border rounded-lg basis-1/2", {
-                "border-red-400": !!errors.name,
-              })}
+              className={cn(
+                "p-4 border dark:border-gray-500 rounded-lg basis-1/2",
+                {
+                  "border-red-400": !!errors.name,
+                }
+              )}
               placeholder="Name"
               {...register("name")}
             />
             <input
-              className={cn("p-4 border rounded-lg basis-1/2", {
-                "border-red-400": !!errors.email,
-              })}
+              className={cn(
+                "p-4 border dark:border-gray-500 rounded-lg basis-1/2",
+                {
+                  "border-red-400": !!errors.email,
+                }
+              )}
               placeholder="Email"
               {...register("email")}
             />
           </div>
           <textarea
-            className={cn("p-4 border rounded-lg", {
+            className={cn("p-4 border dark:border-gray-500 rounded-lg", {
               "border-red-400": !!errors.message,
             })}
             rows={10}

@@ -1,5 +1,4 @@
 import useMobile from "@/hooks/useMobile";
-import { useTheme } from "next-themes";
 import useTranslation from "next-translate/useTranslation";
 import * as React from "react";
 import { Chrono } from "react-chrono";
