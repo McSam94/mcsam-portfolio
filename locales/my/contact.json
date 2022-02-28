@@ -8,6 +8,8 @@
     "name": "Name is required",
     "email": "Email is required",
     "emailFormat": "Invalid email format",
-    "message": "Message is required"
-  }
+    "message": "Message is required",
+    "recaptcha": "Please check recaptcha"
+  },
+  "success": "Message Sent."
 }

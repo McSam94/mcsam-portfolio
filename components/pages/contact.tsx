@@ -1,16 +1,16 @@
 import * as React from "react";
 import cn from "classnames";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import useTranslation from "next-translate/useTranslation";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useTheme } from "next-themes";
 
 const Contact: React.FC = () => {
   const { t } = useTranslation("contact");
-
-  const recaptchaRef = React.useRef<ReCAPTCHA>(null);
+  const { theme } = useTheme();
 
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
   const [errorMessage, setErrorMessage] = React.useState<string>("");
@@ -25,6 +25,7 @@ const Contact: React.FC = () => {
           .email(t("validation.emailFormat"))
           .required(t("validation.email")),
         message: yup.string().required(t("validation.message")),
+        recaptcha: yup.string().required(t("validation.recaptcha")),
       }),
     [t]
   );
@@ -45,7 +46,7 @@ const Contact: React.FC = () => {
       .send(
         "default_service",
         process.env.EMAILJS_TEMPLATE_ID ?? "",
-        { ...data, "g-recaptcha-response": recaptchaRef.current?.getValue() },
+        { ...data, "g-recaptcha-response": data.recaptcha },
         process.env.EMAILJS_USERID
       )
       .then(
@@ -69,7 +70,7 @@ const Contact: React.FC = () => {
           {t("title")}
         </div>
         {errorMessage ? (
-          <div className="p-4 rounded-lg bg-red-400 w-full my-4 text-white flex flex-row justify-between">
+          <div className="p-4 rounded-lg bg-red-700 w-full my-4 text-white flex flex-row justify-between">
             <div className="flex flex-row space-x-4">
               <span className="material-icons text-white">error</span>
               <span>{errorMessage}</span>
@@ -82,8 +83,22 @@ const Contact: React.FC = () => {
             </span>
           </div>
         ) : null}
+        {isSubmitted ? (
+          <div className="p-4 rounded-lg bg-green-700 w-full my-4 text-white flex flex-row justify-between">
+            <div className="flex flex-row space-x-4">
+              <span className="material-icons text-white">check_circle</span>
+              <span>{t("success")}</span>
+            </div>
+            <span
+              className="material-icons cursor-pointer"
+              onClick={() => setIsSubmitted(false)}
+            >
+              close
+            </span>
+          </div>
+        ) : null}
         <form
-          className="flex flex-col space-y-8 w-full h-full"
+          className="flex flex-col space-y-8 w-full h-full items-center"
           onSubmit={handleSubmit(onSend)}
         >
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-between w-full">
@@ -109,24 +124,31 @@ const Contact: React.FC = () => {
             />
           </div>
           <textarea
-            className={cn("p-4 border dark:border-gray-500 rounded-lg", {
+            className={cn("p-4 border dark:border-gray-500 rounded-lg w-full", {
               "border-red-400": !!errors.message,
             })}
             rows={10}
             placeholder="Message"
             {...register("message")}
           />
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            className="flex justify-center"
-            size="normal"
-            sitekey={process.env.RECAPTCHA_SITE_KEY ?? ""}
+          <Controller
+            name="recaptcha"
+            control={control}
+            render={({ field: { onChange } }) => (
+              <ReCAPTCHA
+                className="flex justify-center"
+                size="normal"
+                sitekey={process.env.RECAPTCHA_SITE_KEY ?? ""}
+                theme={theme}
+                onChange={onChange}
+              />
+            )}
           />
           <button
             type="submit"
             disabled={!isValid || isSubmitting}
             className={cn(
-              "py-4 bg-orange-500 rounded-lg text-white disabled:bg-orange-100",
+              "py-4 bg-orange-600 rounded-lg text-white disabled:bg-orange-100 d dark:disabled:bg-gray-100 disabled:text-gray-300 w-full",
               {
                 "cursor-not-allowed": !isValid,
               }
