@@ -49,8 +49,10 @@ const Header: React.FC = () => {
   const { push } = useRouter();
   const { isMobile } = useMobile();
   const { theme, setTheme } = useTheme();
+  const { lang } = useTranslation();
 
   const isDarkMode = React.useMemo(() => theme === "dark", [theme]);
+  console.log("🚀 ~ file: header.tsx ~ line 55 ~ isDarkMode", isDarkMode);
 
   const onThemeToggle = React.useCallback(() => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -111,6 +113,7 @@ const Header: React.FC = () => {
           onSelect={onTranslate}
           renderSelected={(option) => <SelectedLang option={option} />}
           renderOption={(option) => <LangOption option={option} />}
+          defaultValue={lang}
         />
       </div>
     </div>
