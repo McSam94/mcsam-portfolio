@@ -1,5 +1,6 @@
 import * as React from "react";
 import cn from "classnames";
+import useWindowEffect from "@/hooks/useWindowEffect";
 
 export interface Option {
   label: string;
@@ -67,14 +68,14 @@ const Dropdown: React.FC<DropdownProps> = ({
     else document.removeEventListener("mousedown", listenClickOutsideCb);
   }, [isDropdownOpen, listenClickOutsideCb]);
 
-  React.useEffect(() => {
+  useWindowEffect(() => {
     const dropdownClientRect = optionsRef.current?.getBoundingClientRect();
 
     if (!dropdownClientRect) return;
 
     const { right, width } = dropdownClientRect;
 
-    if (right + width >= window.innerHeight) setShouldAlignLeft(true);
+    if (right + width >= window.innerWidth) setShouldAlignLeft(true);
   }, [isDropdownOpen]);
 
   return (

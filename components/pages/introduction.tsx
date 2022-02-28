@@ -6,9 +6,9 @@ import ProgrammerSvg from "@/assets/illustrations/programmer.svg";
 import useMobile from "@/hooks/useMobile";
 
 const Introduction: React.FC = () => {
-  const { isMobile } = useMobile();
+  const { isReady, isMobile } = useMobile();
   const { t } = useTranslation("introduction");
-  const [shouldAnimate, setShouldAnimate] = React.useState(true);
+  const [shouldAnimate, setShouldAnimate] = React.useState(false);
 
   useInterval(
     () => {
@@ -16,8 +16,14 @@ const Introduction: React.FC = () => {
 
       setTimeout(() => setShouldAnimate(false), 4500);
     },
-    isMobile ? null : 5000
+    isMobile ? null : isReady ? 5000 : null
   );
+
+  React.useEffect(() => {
+    if (!isReady) return;
+
+    setShouldAnimate(!isMobile);
+  }, [isReady, isMobile]);
 
   return (
     <div className="h-screen w-full flex justify-center px-10 md:px-20">
