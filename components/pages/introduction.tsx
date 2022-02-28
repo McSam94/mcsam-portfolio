@@ -10,11 +10,14 @@ const Introduction: React.FC = () => {
   const { t } = useTranslation("introduction");
   const [shouldAnimate, setShouldAnimate] = React.useState(true);
 
-  useInterval(() => {
-    setShouldAnimate(true);
+  useInterval(
+    () => {
+      setShouldAnimate(true);
 
-    setTimeout(() => setShouldAnimate(false), 4500);
-  }, 5000);
+      setTimeout(() => setShouldAnimate(false), 4500);
+    },
+    isMobile ? null : 5000
+  );
 
   return (
     <div className="h-screen w-full flex justify-center px-10 md:px-20">

@@ -29,6 +29,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const [value, setValue] = React.useState(defaultValue ?? options[0]?.value);
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
+  const [shouldAlignLeft, setShouldAlignLeft] = React.useState(false);
 
   const selectedOption = React.useMemo(
     () => options.find((option) => option.value === value),
@@ -66,6 +67,16 @@ const Dropdown: React.FC<DropdownProps> = ({
     else document.removeEventListener("mousedown", listenClickOutsideCb);
   }, [isDropdownOpen, listenClickOutsideCb]);
 
+  React.useEffect(() => {
+    const dropdownClientRect = optionsRef.current?.getBoundingClientRect();
+
+    if (!dropdownClientRect) return;
+
+    const { right, width } = dropdownClientRect;
+
+    if (right + width >= window.innerHeight) setShouldAlignLeft(true);
+  }, [isDropdownOpen]);
+
   return (
     <div className="relative max-w-[10rem]">
       <div
@@ -91,8 +102,9 @@ const Dropdown: React.FC<DropdownProps> = ({
       <div
         ref={optionsRef}
         className={cn(
-          "w-full bg-white dark:bg-gray-900 rounded-lg shadow-sm absolute",
+          "w-auto bg-white dark:bg-gray-900 rounded-lg shadow-sm absolute",
           {
+            "right-0": shouldAlignLeft,
             hidden: !isDropdownOpen,
             absolute: isDropdownOpen,
           }

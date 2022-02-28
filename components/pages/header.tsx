@@ -15,7 +15,6 @@ const SelectedLang: React.FC<OptionProps> = ({ option }) => {
   return (
     <div className="flex flex-row">
       <span className="mr-2">{option.icon}</span>
-      <span>{option.label}</span>
     </div>
   );
 };
