@@ -3,7 +3,6 @@ import Header from '@/components/pages/header'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-import useMobile from '@/hooks/useMobile'
 
 const Introduction = dynamic(() => import('@/components/pages/introduction'))
 const Experiences = dynamic(() => import('@/components/pages/experiences'))
@@ -12,9 +11,13 @@ const Projects = dynamic(() => import('@/components/pages/projects'))
 const Contact = dynamic(() => import('@/components/pages/contact'))
 
 const Home: NextPage = () => {
-	const { isReady } = useMobile()
+	const [isMounted, setIsMounted] = React.useState(false)
 
-	if (!isReady) return null
+	React.useEffect(() => {
+		setIsMounted(true)
+	}, [])
+
+	if (!isMounted) return null
 
 	return (
 		<>

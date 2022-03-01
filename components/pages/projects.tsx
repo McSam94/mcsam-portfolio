@@ -35,7 +35,7 @@ const Projects = () => {
 			id="projects"
 			className="w-full flex justify-center bg-gray-100/50 dark:bg-gray-500/50"
 		>
-			<div className="w-full md:w-[85vw] max-w-[100rem] flex flex-col items-center h-full py-20">
+			<div className="w-full lg:w-[85vw] max-w-[100rem] flex flex-col items-center h-full py-20">
 				<div className="text-5xl font-bold text-slate-500 dark:text-white text-center pb-10">
 					{t('title')}
 				</div>

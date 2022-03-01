@@ -23,6 +23,11 @@ div.timeline-item-title {
 	font-size: x-large;
 }
 
+div.timeline-item-title.active {
+	color: inherit;
+	background-color: transparent;
+}
+
 .dark .timeline-card-content {
 	background-color: #3d3d3d;
 }

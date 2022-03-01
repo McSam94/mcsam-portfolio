@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
 
 	return (
 		<div id="contact" className="w-full h-auto flex justify-center py-20">
-			<div className="w-full md:w-[85vw] max-w-[100rem] flex flex-col items-center py-10 px-10 md:px-0">
+			<div className="w-full lg:w-[85vw] max-w-[100rem] flex flex-col items-center py-10 px-10 lg:px-0">
 				<div className="text-5xl font-bold text-slate-500 dark:text-white text-center pb-10">
 					{t('title')}
 				</div>
@@ -103,7 +103,7 @@ const Contact: React.FC = () => {
 					className="flex flex-col space-y-8 w-full h-full items-center"
 					onSubmit={handleSubmit(onSend)}
 				>
-					<div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-between w-full">
+					<div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 justify-between w-full">
 						<input
 							className={cn(
 								'p-4 border dark:border-gray-500 rounded-lg basis-1/2',
@@ -134,6 +134,7 @@ const Contact: React.FC = () => {
 						{...register('message')}
 					/>
 					<Controller
+						key={theme}
 						name="recaptcha"
 						control={control}
 						render={({ field: { onChange } }) => (

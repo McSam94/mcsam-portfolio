@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Chrono } from 'react-chrono'
 
 const Experiences: React.FC = () => {
-	const { isReady, isMobile } = useMobile()
+	const { isMobile, dimensions } = useMobile()
 	const { t } = useTranslation('experiences')
 
 	const experiencesTimeline = React.useMemo(
@@ -43,27 +43,25 @@ const Experiences: React.FC = () => {
 			id="experiences"
 			className="w-full h-auto bg-gray-100/50 dark:bg-gray-500/50 flex justify-center py-20"
 		>
-			<div className="w-full md:w-[85vw] max-w-[100rem] flex flex-col items-center h-full">
+			<div className="w-full lg:w-[85vw] max-w-[100rem] flex flex-col items-center h-full">
 				<div className="text-5xl font-bold text-slate-500 dark:text-white text-center pb-20">
 					{t('title')}
 				</div>
-				{isReady ? (
-					<Chrono
-						items={experiencesTimeline}
-						mode={isMobile ? 'HORIZONTAL' : 'VERTICAL_ALTERNATING'}
-						theme={{
-							primary: 'gray',
-							secondary: '#FCD34D',
-							cardForeColor: 'black',
-							titleColor: 'white',
-						}}
-						activeItemIndex={isMobile ? 0 : -1}
-						disableAutoScrollOnClick
-						disableClickOnCircle
-						disableNavOnKey
-						hideControls={!isMobile}
-					/>
-				) : null}
+				<Chrono
+					key={`${dimensions?.height}_${dimensions?.width}`}
+					items={experiencesTimeline}
+					mode={isMobile ? 'HORIZONTAL' : 'VERTICAL_ALTERNATING'}
+					theme={{
+						primary: '#FCD34D',
+						secondary: '#FCD34D',
+						cardForeColor: 'black',
+						titleColor: 'white',
+					}}
+					disableAutoScrollOnClick
+					disableClickOnCircle
+					disableNavOnKey
+					hideControls={!isMobile}
+				/>
 			</div>
 		</div>
 	)

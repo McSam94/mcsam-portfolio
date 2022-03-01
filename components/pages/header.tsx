@@ -87,7 +87,7 @@ const Header: React.FC = () => {
 					</>
 				</Link>
 			</div>
-			<div className="flex-row items-center basis-1/3 justify-between hidden md:flex">
+			<div className="flex-row items-center basis-1/3 justify-between hidden lg:flex">
 				<MenuItem menu="experiences" />
 				<MenuItem menu="skills" />
 				<MenuItem menu="projects" />
