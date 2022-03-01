@@ -2,11 +2,13 @@ import * as React from "react";
 import Header from "@/components/pages/header";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Introduction from "@/components/pages/introduction";
-import Experiences from "@/components/pages/experiences";
-import Skills from "@/components/pages/skills";
-import Projects from "@/components/pages/projects";
-import Contact from "@/components/pages/contact";
+import dynamic from "next/dynamic";
+
+const Introduction = dynamic(() => import("@/components/pages/introduction"));
+const Experiences = dynamic(() => import("@/components/pages/experiences"));
+const Skills = dynamic(() => import("@/components/pages/skills"));
+const Projects = dynamic(() => import("@/components/pages/projects"));
+const Contact = dynamic(() => import("@/components/pages/contact"));
 
 const Home: NextPage = () => {
   return (

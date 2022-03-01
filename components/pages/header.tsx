@@ -52,7 +52,6 @@ const Header: React.FC = () => {
   const { lang } = useTranslation();
 
   const isDarkMode = React.useMemo(() => theme === "dark", [theme]);
-  console.log("🚀 ~ file: header.tsx ~ line 55 ~ isDarkMode", isDarkMode);
 
   const onThemeToggle = React.useCallback(() => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -67,23 +66,25 @@ const Header: React.FC = () => {
     <div className="w-full sticky top-0 flex flex-row justify-between px-8 py-6 bg-slate-100 dark:bg-slate-800 dark:text-white z-10 shadow-sm">
       <div className="basis-1/3">
         <Link href="/">
-          {isMobile ? (
-            <Image
-              src="/logo.png"
-              className="hover:transition-transform hover:rotate-[360deg] cursor-pointer"
-              width={45}
-              height={45}
-              alt="logo"
-            />
-          ) : (
-            <Image
-              src="/logo.png"
-              className="hover:transition-transform hover:rotate-[360deg] cursor-pointer"
-              width={55}
-              height={55}
-              alt="logo"
-            />
-          )}
+          <>
+            {isMobile ? (
+              <Image
+                src="/logo.png"
+                className="hover:transition-transform hover:rotate-[360deg] cursor-pointer"
+                width={45}
+                height={45}
+                alt="logo"
+              />
+            ) : (
+              <Image
+                src="/logo.png"
+                className="hover:transition-transform hover:rotate-[360deg] cursor-pointer"
+                width={55}
+                height={55}
+                alt="logo"
+              />
+            )}
+          </>
         </Link>
       </div>
       <div className="flex-row items-center basis-1/3 justify-between hidden md:flex">
