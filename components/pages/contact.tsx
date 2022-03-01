@@ -1,18 +1,18 @@
 import * as React from 'react'
 import cn from 'classnames'
+import { useTheme } from 'next-themes'
+import dynamic from 'next/dynamic'
 import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import useTranslation from 'next-translate/useTranslation'
 import emailjs from '@emailjs/browser'
-import ReCAPTCHA from 'react-google-recaptcha'
-import { useTheme } from 'next-themes'
-import useMounted from '@/hooks/useMounted'
+
+const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'))
 
 const Contact: React.FC = () => {
 	const { t } = useTranslation('contact')
 	const { theme } = useTheme()
-	const isMounted = useMounted()
 
 	const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false)
 	const [errorMessage, setErrorMessage] = React.useState<string>('')
@@ -135,22 +135,20 @@ const Contact: React.FC = () => {
 						placeholder="Message"
 						{...register('message')}
 					/>
-					{isMounted ? (
-						<Controller
-							key={theme}
-							name="recaptcha"
-							control={control}
-							render={({ field: { onChange } }) => (
-								<ReCAPTCHA
-									className="flex justify-center"
-									size="normal"
-									sitekey={process.env.RECAPTCHA_SITE_KEY ?? ''}
-									theme={theme}
-									onChange={onChange}
-								/>
-							)}
-						/>
-					) : null}
+					<Controller
+						key={theme}
+						name="recaptcha"
+						control={control}
+						render={({ field: { onChange } }) => (
+							<ReCAPTCHA
+								className="flex justify-center"
+								size="normal"
+								sitekey={process.env.RECAPTCHA_SITE_KEY ?? ''}
+								theme={theme}
+								onChange={onChange}
+							/>
+						)}
+					/>
 					<button
 						type="submit"
 						disabled={!isValid || isSubmitting}
