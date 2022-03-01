@@ -89,9 +89,11 @@ const Header: React.FC = () => {
 			</div>
 			<div className="flex flex-row items-center space-x-10 basis-1/3 justify-end">
 				<div
+					role="button"
+					tabIndex={0}
 					className="flex cursor-pointer bg-slate-200/50 dark:bg-slate-500 rounded-full p-2"
 					onClick={onThemeToggle}
-					aria-hidden="true"
+					onKeyDown={onThemeToggle}
 				>
 					{isDarkMode ? (
 						<span className="material-icons text-gray-100 text-md">

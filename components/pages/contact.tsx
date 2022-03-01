@@ -78,9 +78,11 @@ const Contact: React.FC = () => {
 							<span>{errorMessage}</span>
 						</div>
 						<span
+							role="button"
+							tabIndex={0}
 							className="material-icons cursor-pointer"
 							onClick={() => setErrorMessage('')}
-							aria-hidden="true"
+							onKeyDown={() => setErrorMessage('')}
 						>
 							close
 						</span>
@@ -93,9 +95,11 @@ const Contact: React.FC = () => {
 							<span>{t('success')}</span>
 						</div>
 						<span
+							role="button"
+							tabIndex={0}
 							className="material-icons cursor-pointer"
 							onClick={() => setIsSubmitted(false)}
-							aria-hidden="true"
+							onKeyDown={() => setErrorMessage('')}
 						>
 							close
 						</span>

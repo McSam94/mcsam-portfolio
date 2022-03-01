@@ -81,10 +81,12 @@ const Dropdown: React.FC<DropdownProps> = ({
 	return (
 		<div className="relative max-w-[10rem]">
 			<div
+				role="button"
+				tabIndex={0}
 				ref={dropdownRef}
 				className="px-4 py-2 border rounded-lg flex flex-row items-center cursor-pointer"
 				onClick={onDropdownClick}
-				aria-hidden="true"
+				onKeyDown={onDropdownClick}
 			>
 				{selectedOption ? (
 					renderSelected?.(selectedOption) ?? (
@@ -114,10 +116,12 @@ const Dropdown: React.FC<DropdownProps> = ({
 			>
 				{options.map(option => (
 					<div
+						role="button"
+						tabIndex={0}
 						key={option.value}
 						className="py-2 px-4 text-lg cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-500"
 						onClick={() => onOptionSelect(option.value)}
-						aria-hidden="true"
+						onKeyDown={() => onOptionSelect(option.value)}
 					>
 						{renderOption?.(option) ?? option.label}
 					</div>
