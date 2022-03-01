@@ -78,6 +78,7 @@ const Contact: React.FC = () => {
 						<span
 							className="material-icons cursor-pointer"
 							onClick={() => setErrorMessage('')}
+							aria-hidden="true"
 						>
 							close
 						</span>
@@ -92,6 +93,7 @@ const Contact: React.FC = () => {
 						<span
 							className="material-icons cursor-pointer"
 							onClick={() => setIsSubmitted(false)}
+							aria-hidden="true"
 						>
 							close
 						</span>

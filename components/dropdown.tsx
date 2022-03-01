@@ -43,9 +43,9 @@ const Dropdown: React.FC<DropdownProps> = ({
 	)
 
 	const onOptionSelect = React.useCallback(
-		value => {
-			setValue(value)
-			onSelect?.(value)
+		selectedValue => {
+			setValue(selectedValue)
+			onSelect?.(selectedValue)
 			setIsDropdownOpen(false)
 		},
 		[onSelect]
@@ -84,6 +84,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 				ref={dropdownRef}
 				className="px-4 py-2 border rounded-lg flex flex-row items-center cursor-pointer"
 				onClick={onDropdownClick}
+				aria-hidden="true"
 			>
 				{selectedOption ? (
 					renderSelected?.(selectedOption) ?? (
@@ -116,6 +117,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 						key={option.value}
 						className="py-2 px-4 text-lg cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-500"
 						onClick={() => onOptionSelect(option.value)}
+						aria-hidden="true"
 					>
 						{renderOption?.(option) ?? option.label}
 					</div>

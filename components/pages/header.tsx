@@ -58,7 +58,7 @@ const Header: React.FC = () => {
 	}, [setTheme, theme])
 
 	const onTranslate = React.useCallback(
-		lang => push('/', '', { locale: lang }),
+		selectedLang => push('/', '', { locale: selectedLang }),
 		[push]
 	)
 
@@ -97,6 +97,7 @@ const Header: React.FC = () => {
 				<div
 					className="flex cursor-pointer bg-slate-200/50 dark:bg-slate-500 rounded-full p-2"
 					onClick={onThemeToggle}
+					aria-hidden="true"
 				>
 					{isDarkMode ? (
 						<span className="material-icons text-gray-100 text-md">

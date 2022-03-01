@@ -15,7 +15,6 @@
 		"next/core-web-vitals",
 		"eslint:recommended",
 		"prettier",
-		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
 		"plugin:jsx-a11y/recommended",
@@ -38,7 +37,7 @@
 			}
 		],
 		"import/prefer-default-export": "off",
-		"max-len": ["warn", { "code": 80 }]
+		"max-len": ["warn", { "code": 240 }]
 	},
 	"settings": {
 		"react": {

@@ -1,4 +1,3 @@
 {
-	"_comment": "TODO: TODO: follow up https://github.com/okonet/lint-staged/issues/677",
-	"*.{ts,tsx}": ["pnpm format"]
+	"*.{ts,tsx}": ["pnpm format", "pnpm eslint"]
 }
