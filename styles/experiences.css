@@ -1,40 +1,40 @@
 .timeline-card-content {
-  padding: 1rem;
-  background-color: white;
+	padding: 1rem;
+	background-color: white;
 }
 
 p.card-title {
-  font-weight: bold;
-  color: black;
-  font-size: xx-large;
+	font-weight: bold;
+	color: black;
+	font-size: xx-large;
 }
 
 p.card-sub-title {
-  color: gray;
-  margin-top: 2rem;
-  font-size: medium;
+	color: gray;
+	margin-top: 2rem;
+	font-size: medium;
 }
 
 .timeline-card-content span {
-  background-color: white;
+	background-color: white;
 }
 
 div.timeline-item-title {
-  font-size: x-large;
+	font-size: x-large;
 }
 
 .dark .timeline-card-content {
-  background-color: #3d3d3d;
+	background-color: #3d3d3d;
 }
 
 .dark p.card-title {
-  color: white;
+	color: white;
 }
 
 .dark p.card-sub-title {
-  color: rgba(255, 255, 255, 0.8);
+	color: rgba(255, 255, 255, 0.8);
 }
 
 .dark .timeline-card-content span {
-  background-color: #3d3d3d;
+	background-color: #3d3d3d;
 }

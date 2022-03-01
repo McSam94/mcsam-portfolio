@@ -1,15 +1,15 @@
 {
-  "title": "Hubungi Saya",
-  "name": "Name",
-  "email": "Email",
-  "message": "Message",
-  "send": "Send",
-  "validation": {
-    "name": "Name is required",
-    "email": "Email is required",
-    "emailFormat": "Invalid email format",
-    "message": "Message is required",
-    "recaptcha": "Please check recaptcha"
-  },
-  "success": "Message Sent."
+	"title": "Hubungi Saya",
+	"name": "Name",
+	"email": "Email",
+	"message": "Message",
+	"send": "Send",
+	"validation": {
+		"name": "Name is required",
+		"email": "Email is required",
+		"emailFormat": "Invalid email format",
+		"message": "Message is required",
+		"recaptcha": "Please check recaptcha"
+	},
+	"success": "Message Sent."
 }
