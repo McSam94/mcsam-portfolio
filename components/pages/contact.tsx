@@ -7,10 +7,12 @@ import useTranslation from 'next-translate/useTranslation'
 import emailjs from '@emailjs/browser'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useTheme } from 'next-themes'
+import useMounted from '@/hooks/useMounted'
 
 const Contact: React.FC = () => {
 	const { t } = useTranslation('contact')
 	const { theme } = useTheme()
+	const isMounted = useMounted()
 
 	const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false)
 	const [errorMessage, setErrorMessage] = React.useState<string>('')
@@ -133,20 +135,22 @@ const Contact: React.FC = () => {
 						placeholder="Message"
 						{...register('message')}
 					/>
-					<Controller
-						key={theme}
-						name="recaptcha"
-						control={control}
-						render={({ field: { onChange } }) => (
-							<ReCAPTCHA
-								className="flex justify-center"
-								size="normal"
-								sitekey={process.env.RECAPTCHA_SITE_KEY ?? ''}
-								theme={theme}
-								onChange={onChange}
-							/>
-						)}
-					/>
+					{isMounted ? (
+						<Controller
+							key={theme}
+							name="recaptcha"
+							control={control}
+							render={({ field: { onChange } }) => (
+								<ReCAPTCHA
+									className="flex justify-center"
+									size="normal"
+									sitekey={process.env.RECAPTCHA_SITE_KEY ?? ''}
+									theme={theme}
+									onChange={onChange}
+								/>
+							)}
+						/>
+					) : null}
 					<button
 						type="submit"
 						disabled={!isValid || isSubmitting}
