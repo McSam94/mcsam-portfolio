@@ -51,7 +51,7 @@ const Header: React.FC = () => {
 	const { theme, setTheme } = useTheme()
 	const { lang } = useTranslation()
 
-	const isDarkMode = React.useMemo(() => theme === 'dark', [theme])
+	const isLightMode = React.useMemo(() => theme === 'light', [theme])
 
 	const onThemeToggle = React.useCallback(() => {
 		setTheme(theme === 'dark' ? 'light' : 'dark')
@@ -95,12 +95,12 @@ const Header: React.FC = () => {
 					onClick={onThemeToggle}
 					onKeyDown={onThemeToggle}
 				>
-					{isDarkMode ? (
+					{!isLightMode ? (
 						<span className="material-icons text-gray-100 text-md">
 							dark_mode
 						</span>
 					) : null}
-					{!isDarkMode ? (
+					{isLightMode ? (
 						<span className="material-icons text-yellow-500 text-md">
 							light_mode
 						</span>
