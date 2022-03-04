@@ -19,7 +19,7 @@ const Provider: React.FC<ProviderProps> = ({ children }) => {
 	)
 }
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
 	return (
 		<Provider>
 			<Component {...pageProps} />
