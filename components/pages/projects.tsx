@@ -29,7 +29,7 @@ const PROJECTS = [
 	},
 ]
 
-const Projects = () => {
+const Projects: React.FC = () => {
 	const { t } = useTranslation('projects')
 
 	return (
