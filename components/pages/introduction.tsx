@@ -7,7 +7,12 @@ import Image from 'next/image'
 import startCase from 'lodash.startcase'
 import { PROFILE_URL } from '@/config/constants'
 import useMobile from '@/hooks/useMobile'
-import ProgrammerSvg from '@/assets/illustrations/programmer.svg'
+import dynamic from 'next/dynamic'
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ProgrammerSvg: React.ComponentType<any> = dynamic(
+	() => import('@/assets/illustrations/programmer.svg')
+)
 
 const Introduction: React.FC = () => {
 	const { dimensions, isMobile } = useMobile()
