@@ -4,30 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ReactTooltip from 'react-tooltip'
 import startCase from 'lodash.startcase'
-
-const PROJECTS = [
-	{
-		name: 'Checkin',
-		logo: 'checkin',
-		stacks: ['flutter'],
-		gitLink: 'https://gitlab.com/mcsam1216/checkin',
-		productionLink:
-			'https://play.google.com/store/apps/details?id=com.mcsam.checkin',
-	},
-	{
-		name: 'Email Butcher',
-		logo: 'emailButcher',
-		stacks: ['next', 'materialUI', 'nest', 'typescript'],
-		gitLink: 'https://github.com/McSam94/email-butcher',
-		productionLink: 'https://www.emailbutcher.com/',
-	},
-	{
-		name: 'TiTi Official Website',
-		logo: 'titi',
-		stacks: ['gatsby', 'sass'],
-		productionLink: 'https://www.titi.asia/',
-	},
-]
+import { PROJECTS } from '@/config/constants'
 
 const Projects: React.FC = () => {
 	const { t } = useTranslation('projects')

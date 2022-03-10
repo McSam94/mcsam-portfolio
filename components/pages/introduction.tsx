@@ -2,8 +2,12 @@ import * as React from 'react'
 import cn from 'classnames'
 import { useInterval } from 'usehooks-ts'
 import useTranslation from 'next-translate/useTranslation'
-import ProgrammerSvg from '@/assets/illustrations/programmer.svg'
+import Link from 'next/link'
+import Image from 'next/image'
+import startCase from 'lodash.startcase'
+import { PROFILE_URL } from '@/config/constants'
 import useMobile from '@/hooks/useMobile'
+import ProgrammerSvg from '@/assets/illustrations/programmer.svg'
 
 const Introduction: React.FC = () => {
 	const { dimensions, isMobile } = useMobile()
@@ -45,6 +49,24 @@ const Introduction: React.FC = () => {
 					<div className="text-3xl font-semibold">{t('short')}</div>
 					<div className="text-xl text-gray-500 dark:text-gray-200 leading-10 mt-6">
 						{t('caption')}
+					</div>
+					<div className="flex flex-row space-x-4 mt-4">
+						{PROFILE_URL.map(profile => (
+							<div
+								key={profile.name}
+								data-tip={startCase(profile.name)}
+								className="cursor-pointer"
+							>
+								<Link href={profile.url} passHref>
+									<Image
+										src={`/profile/${profile.name}.svg`}
+										width={25}
+										height={25}
+										alt={profile.name}
+									/>
+								</Link>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>
