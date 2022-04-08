@@ -55,4 +55,11 @@ export const PROJECTS: Array<project> = [
 		stacks: ['gatsby', 'sass'],
 		productionLink: 'https://www.titi.asia/',
 	},
+	{
+		name: 'CryptoConvert',
+		logo: 'cryptoConvert',
+		stacks: ['chromeExtension'],
+		productionLink:
+			'https://chrome.google.com/webstore/detail/cryptoconvert/aaebjaemmlkjalibfidhjomnpagoglej?hl=en-GB',
+	},
 ]
