@@ -12,26 +12,31 @@ const Experiences: React.FC = () => {
 			{
 				title: '2017',
 				cardTitle: t('title1'),
+				url: '#',
 				cardSubtitle: t('description1'),
 			},
 			{
 				title: '2018',
 				cardTitle: t('title2'),
+				url: '#',
 				cardSubtitle: t('description2'),
 			},
 			{
 				title: '2019',
 				cardTitle: t('title3'),
+				url: '#',
 				cardSubtitle: t('description3'),
 			},
 			{
 				title: '2020',
 				cardTitle: t('title4'),
+				url: '#',
 				cardSubtitle: t('description4'),
 			},
 			{
 				title: 'Present',
 				cardTitle: t('title5'),
+				url: '#',
 				cardSubtitle: t('description5'),
 			},
 		],
