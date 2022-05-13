@@ -68,13 +68,13 @@ const Header: React.FC = () => {
 				<Link href="/">
 					<>
 						{isMobile ? (
-							<Image src="/logo.png" width={45} height={45} alt="logo" />
+							<Image src="/logo.svg" width="45" height="45" alt="logo" />
 						) : (
 							<Image
-								src="/logo.png"
+								src="/logo.svg"
 								className="hover:transition-transform hover:rotate-[360deg] cursor-pointer"
-								width={55}
-								height={55}
+								width="55"
+								height="55"
 								alt="logo"
 							/>
 						)}

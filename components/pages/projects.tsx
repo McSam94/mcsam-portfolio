@@ -28,8 +28,8 @@ const Projects: React.FC = () => {
 								<div className="ml-4 shadow-lg rounded-lg cursor-pointer w-[20rem]">
 									<Image
 										src={`/projects/${project.logo}.svg`}
-										width={318}
-										height={280}
+										width="318"
+										height="280"
 										objectFit="contain"
 										alt={project.name}
 									/>
@@ -44,8 +44,8 @@ const Projects: React.FC = () => {
 												>
 													<Image
 														src={`/skills/${stack}.svg`}
-														width={30}
-														height={30}
+														width="30"
+														height="30"
 														alt={stack}
 													/>
 												</div>

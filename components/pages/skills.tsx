@@ -33,7 +33,7 @@ interface SkillBoxProps {
 const SkillBox: React.FC<SkillBoxProps> = ({ skill }) => {
 	return (
 		<div className="flex flex-row items-center space-x-4 p-4 rounded-lg shadow-sm hover:shadow-lg cursor-pointer bg-slate-100 dark:bg-gray-600 w-[12rem]">
-			<Image src={`/skills/${skill}.svg`} alt={skill} width={30} height={30} />
+			<Image src={`/skills/${skill}.svg`} alt={skill} width="30" height="30" />
 			<div className="text-lg flex-1 whitespace-nowrap truncate">
 				{startCase(skill)}
 			</div>

@@ -14,6 +14,21 @@ const ProgrammerSvg: React.ComponentType<any> = dynamic(
 	() => import('@/assets/illustrations/programmer.svg')
 )
 
+interface ProfilePicProps {
+	image: string
+	alt: string
+}
+
+const ProfilePic = React.forwardRef<HTMLImageElement, ProfilePicProps>(
+	({ image, alt }, ref) => (
+		<div ref={ref}>
+			<Image src={image} width="25" height="25" alt={alt} />
+		</div>
+	)
+)
+
+ProfilePic.displayName = 'ProfilePic'
+
 const Introduction: React.FC = () => {
 	const { dimensions, isMobile } = useMobile()
 	const { t } = useTranslation('introduction')
@@ -63,10 +78,8 @@ const Introduction: React.FC = () => {
 								className="cursor-pointer"
 							>
 								<Link href={profile.url} passHref>
-									<Image
-										src={`/profile/${profile.name}.svg`}
-										width={25}
-										height={25}
+									<ProfilePic
+										image={`/profile/${profile.name}.svg`}
 										alt={profile.name}
 									/>
 								</Link>

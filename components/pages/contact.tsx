@@ -18,6 +18,11 @@ const Contact: React.FC = () => {
 	const [errorMessage, setErrorMessage] = React.useState<string>('')
 	const [isSubmitted, setIsSubmitted] = React.useState<boolean>(false)
 
+	const recaptchaTheme = React.useMemo(
+		() => (theme === 'system' ? 'light' : theme),
+		[theme]
+	)
+
 	const contactSchema = React.useMemo(
 		() =>
 			yup.object().shape({
@@ -148,7 +153,7 @@ const Contact: React.FC = () => {
 								className="flex justify-center"
 								size="normal"
 								sitekey={process.env.RECAPTCHA_SITE_KEY ?? ''}
-								theme={theme}
+								theme={recaptchaTheme}
 								onChange={onChange}
 							/>
 						)}
