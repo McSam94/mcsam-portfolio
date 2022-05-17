@@ -2,7 +2,6 @@ import * as React from 'react'
 import cn from 'classnames'
 import { useInterval } from 'usehooks-ts'
 import useTranslation from 'next-translate/useTranslation'
-import Link from 'next/link'
 import Image from 'next/image'
 import startCase from 'lodash.startcase'
 import { PROFILE_URL } from '@/config/constants'
@@ -13,21 +12,6 @@ import dynamic from 'next/dynamic'
 const ProgrammerSvg: React.ComponentType<any> = dynamic(
 	() => import('@/assets/illustrations/programmer.svg')
 )
-
-interface ProfilePicProps {
-	image: string
-	alt: string
-}
-
-const ProfilePic = React.forwardRef<HTMLImageElement, ProfilePicProps>(
-	({ image, alt }, ref) => (
-		<div ref={ref}>
-			<Image src={image} width="25" height="25" alt={alt} />
-		</div>
-	)
-)
-
-ProfilePic.displayName = 'ProfilePic'
 
 const Introduction: React.FC = () => {
 	const { dimensions, isMobile } = useMobile()
@@ -77,12 +61,14 @@ const Introduction: React.FC = () => {
 								data-tip={startCase(profile.name)}
 								className="cursor-pointer"
 							>
-								<Link href={profile.url} passHref>
-									<ProfilePic
-										image={`/profile/${profile.name}.svg`}
+								<a href={profile.url} target="_blank" rel="noreferrer">
+									<Image
+										src={`/profile/${profile.name}.svg`}
+										width="25"
+										height="25"
 										alt={profile.name}
 									/>
-								</Link>
+								</a>
 							</div>
 						))}
 					</div>
