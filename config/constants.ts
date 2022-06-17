@@ -61,6 +61,6 @@ export const PROJECTS: Array<project> = [
 		logo: 'cryptoConvert',
 		stacks: ['chromeExtension'],
 		productionLink:
-			'https://chrome.google.com/webstore/detail/cryptoconvert/aaebjaemmlkjalibfidhjomnpagoglej?hl=en-GB',
+			'https://chrome.google.com/webstore/detail/crypto-convert/jepdkijhaejihggimfmcongnkpngpbdc',
 	},
 ]

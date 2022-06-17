@@ -63,12 +63,14 @@ const Projects: React.FC = () => {
 												</Link>
 											) : null}
 											<Link href={project.productionLink} passHref>
-												<div className="flex flex-row text-orange-700 p-2 bg-slate-100 hover:bg-slate-200 rounded-lg">
-													<span className="text-base">{t('visitSite')}</span>
-													<span className="material-icons ml-2">
-														arrow_forward
-													</span>
-												</div>
+												<a href="replace" target="_blank">
+													<div className="flex flex-row text-orange-700 p-2 bg-slate-100 hover:bg-slate-200 rounded-lg">
+														<span className="text-base">{t('visitSite')}</span>
+														<span className="material-icons ml-2">
+															arrow_forward
+														</span>
+													</div>
+												</a>
 											</Link>
 										</div>
 									</div>
