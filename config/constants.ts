@@ -23,7 +23,7 @@ export const PROFILE_URL: Array<Profile> = [
 	{ name: 'linkedin', url: 'https://www.linkedin.com/in/yong-sam-87561a159/' },
 	{ name: 'github', url: 'https://github.com/McSam94' },
 	{ name: 'gitlab', url: 'https://gitlab.com/mcsam1216' },
-	{ name: 'medium', url: 'https://medium.com/@mcsam1216' },
+	// { name: 'medium', url: 'https://medium.com/@mcsam1216' },
 ]
 
 interface project {
