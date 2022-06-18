@@ -1,12 +1,13 @@
 import * as React from 'react'
 import cn from 'classnames'
-import { useInterval } from 'usehooks-ts'
-import useTranslation from 'next-translate/useTranslation'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import useTranslation from 'next-translate/useTranslation'
+import { useInterval } from 'usehooks-ts'
 import startCase from 'lodash.startcase'
+
 import { PROFILE_URL } from '@/config/constants'
 import useMobile from '@/hooks/useMobile'
-import dynamic from 'next/dynamic'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ProgrammerSvg: React.ComponentType<any> = dynamic(

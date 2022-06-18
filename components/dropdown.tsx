@@ -9,6 +9,7 @@ export interface Option {
 }
 
 interface DropdownProps {
+	className?: string
 	options: Array<Option>
 	placeholder?: string
 	defaultValue?: string
@@ -18,6 +19,7 @@ interface DropdownProps {
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
+	className,
 	options,
 	placeholder,
 	defaultValue,
@@ -79,12 +81,15 @@ const Dropdown: React.FC<DropdownProps> = ({
 	}, [isDropdownOpen])
 
 	return (
-		<div className="relative max-w-[10rem]">
+		<div className="relative">
 			<div
 				role="button"
 				tabIndex={0}
 				ref={dropdownRef}
-				className="px-4 py-2 border rounded-lg flex flex-row items-center cursor-pointer"
+				className={cn(
+					'px-4 py-2 border rounded-lg flex flex-row items-center cursor-pointer',
+					className
+				)}
 				onClick={onDropdownClick}
 				onKeyDown={onDropdownClick}
 			>
@@ -96,7 +101,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 					<span>{placeholder}</span>
 				)}
 				<span
-					className={cn('material-icons', {
+					className={cn('material-icons transition-transform', {
 						'rotate-180': isDropdownOpen,
 					})}
 				>
@@ -119,7 +124,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 						role="button"
 						tabIndex={0}
 						key={option.value}
-						className="py-2 px-4 text-lg cursor-pointer hover:bg-gray-200 hover:dark:bg-gray-500"
+						className="py-2 px-4 text-lg cursor-pointer rounded-lg hover:bg-gray-200 hover:dark:bg-gray-500"
 						onClick={() => onOptionSelect(option.value)}
 						onKeyDown={() => onOptionSelect(option.value)}
 					>

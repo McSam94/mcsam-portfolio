@@ -1,7 +1,7 @@
-import useMobile from '@/hooks/useMobile'
-import useTranslation from 'next-translate/useTranslation'
 import * as React from 'react'
 import { Chrono } from 'react-chrono'
+import useMobile from '@/hooks/useMobile'
+import useTranslation from 'next-translate/useTranslation'
 
 const Experiences: React.FC = () => {
 	const { isMobile, dimensions } = useMobile()

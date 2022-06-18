@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import * as React from 'react'
+import Image from 'next/image'
 import startCase from 'lodash.startcase'
 import useTranslation from 'next-translate/useTranslation'
 

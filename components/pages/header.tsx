@@ -1,12 +1,12 @@
 import * as React from 'react'
 import useTranslation from 'next-translate/useTranslation'
-import Dropdown, { Option } from '@/components/dropdown'
-import { LANG } from '@/config/constants'
 import { useRouter } from 'next/router'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import Image from 'next/image'
 import useMobile from '@/hooks/useMobile'
+import Dropdown, { Option } from '@/components/dropdown'
+import { LANG } from '@/config/constants'
 
 interface OptionProps {
 	option: Option
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
 				<div
 					role="button"
 					tabIndex={0}
-					className="flex cursor-pointer bg-slate-200/50 dark:bg-slate-500 rounded-full p-2"
+					className="flex cursor-pointer bg-slate-200/50 dark:bg-slate-500 rounded-full p-2 w-10 h-10"
 					onClick={onThemeToggle}
 					onKeyDown={onThemeToggle}
 				>
@@ -107,6 +107,7 @@ const Header: React.FC = () => {
 					) : null}
 				</div>
 				<Dropdown
+					className="w-[82px]"
 					options={LANG}
 					onSelect={onTranslate}
 					renderSelected={option => <SelectedLang option={option} />}
