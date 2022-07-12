@@ -63,4 +63,10 @@ export const PROJECTS: Array<project> = [
 		productionLink:
 			'https://chrome.google.com/webstore/detail/crypto-convert/jepdkijhaejihggimfmcongnkpngpbdc',
 	},
+	{
+		name: 'Jupiter Bot',
+		logo: 'jupiterBot',
+		stacks: ['solanaWeb3', 'next', 'tailwind', 'typescript', 'blockly'],
+		productionLink: 'https://jupiter-bot.vercel.app/',
+	},
 ]

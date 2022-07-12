@@ -26,6 +26,7 @@ const SKILLS = [
 	'chromeExtension',
 	'solanaWeb3',
 	'serumAnchor',
+	'blockly',
 ]
 
 interface SkillBoxProps {
