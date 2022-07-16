@@ -26,13 +26,14 @@ const Projects: React.FC = () => {
 								className="basis-2/3 ml-4 flex justify-center h-fit mb-2 dark:bg-black/30 rounded-lg"
 							>
 								<div className="ml-4 shadow-lg rounded-lg cursor-pointer w-[20rem]">
-									<Image
-										src={`/projects/${project.logo}.svg`}
-										width="318"
-										height="280"
-										objectFit="contain"
-										alt={project.name}
-									/>
+									<div className="w-full h-60 relative">
+										<Image
+											src={`/projects/${project.logo}.svg`}
+											layout="fill"
+											objectFit="cover"
+											alt={project.name}
+										/>
+									</div>
 									<div className="flex flex-col p-4">
 										<div className="text-2xl font-semibold">{project.name}</div>
 										<div className="flex flex-row space-x-4 my-2">

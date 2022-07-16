@@ -60,6 +60,7 @@ export const PROJECTS: Array<project> = [
 		name: 'CryptoConvert',
 		logo: 'cryptoConvert',
 		stacks: ['chromeExtension'],
+		gitLink: 'https://github.com/McSam94/CryptoConvert',
 		productionLink:
 			'https://chrome.google.com/webstore/detail/crypto-convert/jepdkijhaejihggimfmcongnkpngpbdc',
 	},
@@ -67,6 +68,7 @@ export const PROJECTS: Array<project> = [
 		name: 'Jupiter Bot',
 		logo: 'jupiterBot',
 		stacks: ['solanaWeb3', 'next', 'tailwind', 'typescript', 'blockly'],
+		gitLink: 'https://github.com/McSam94/jupiter-bot',
 		productionLink: 'https://jupiter-bot.vercel.app/',
 	},
 ]
