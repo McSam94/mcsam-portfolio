@@ -117,7 +117,7 @@ const Contact: React.FC = () => {
 					<div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 justify-between w-full">
 						<input
 							className={cn(
-								'p-4 border dark:border-gray-500 rounded-lg basis-1/2',
+								'p-4 border border-gray-500 dark:border-black/50 rounded-lg basis-1/2',
 								{
 									'border-red-400': !!errors.name,
 								}
@@ -127,7 +127,7 @@ const Contact: React.FC = () => {
 						/>
 						<input
 							className={cn(
-								'p-4 border dark:border-gray-500 rounded-lg basis-1/2',
+								'p-4 border border-gray-500 dark:border-black/50 rounded-lg basis-1/2',
 								{
 									'border-red-400': !!errors.email,
 								}
@@ -137,9 +137,12 @@ const Contact: React.FC = () => {
 						/>
 					</div>
 					<textarea
-						className={cn('p-4 border dark:border-gray-500 rounded-lg w-full', {
-							'border-red-400': !!errors.message,
-						})}
+						className={cn(
+							'p-4 border border-gray-500 dark:border-black/50 rounded-lg w-full',
+							{
+								'border-red-400': !!errors.message,
+							}
+						)}
 						rows={10}
 						placeholder="Message"
 						{...register('message')}
@@ -162,7 +165,7 @@ const Contact: React.FC = () => {
 						type="submit"
 						disabled={!isValid || isSubmitting}
 						className={cn(
-							'py-4 bg-orange-600 rounded-lg text-white disabled:bg-orange-100 d dark:disabled:bg-gray-100 disabled:text-gray-300 w-full',
+							'py-4 bg-orange-600 rounded-lg text-white disabled:bg-orange-100 disabled:opacity-70 w-full',
 							{
 								'cursor-not-allowed': !isValid,
 							}

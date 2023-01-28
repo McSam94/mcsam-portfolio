@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
 					<div className="text-5xl font-bold text-slate-500 dark:text-white text-center pb-10">
 						{t('title')}
 					</div>
-					<div className="flex flex-row max-w-[100vw] overflow-x-auto h-full">
+					<div className="flex flex-row max-w-[100vw] overflow-x-auto h-full py-5">
 						{PROJECTS.map(project => (
 							<div
 								key={project.name}
