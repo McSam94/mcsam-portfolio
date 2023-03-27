@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 import I18nProvider from 'next-translate/I18nProvider'
 import useTranslation from 'next-translate/useTranslation'
+import { Analytics } from '@vercel/analytics/react'
 
 interface ProviderProps {
 	children: React.ReactNode
@@ -23,6 +24,7 @@ const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
 	return (
 		<Provider>
 			<Component {...pageProps} />
+			<Analytics />
 		</Provider>
 	)
 }
