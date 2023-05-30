@@ -115,7 +115,7 @@ const Header: React.FC = () => {
 						className={cn('material-icons text-md', {
 							'text-gray-100': theme === Theme.DARK,
 							'text-yellow-500': theme === Theme.LIGHT,
-							'text-black': theme === Theme.SYSTEM,
+							'text-orange-800': theme === Theme.SYSTEM,
 						})}
 					>
 						{themeIcon}
