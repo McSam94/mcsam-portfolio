@@ -50,10 +50,7 @@ const Experiences: React.FC = () => {
 	)
 
 	return (
-		<div
-			id="experiences"
-			className="w-full h-auto bg-gray-100/50 dark:bg-gray-500/50 flex justify-center py-20"
-		>
+		<div id="experiences" className="w-full h-auto flex justify-center py-20">
 			<div className="w-full lg:w-[85vw] max-w-[100rem] flex flex-col items-center h-full">
 				<div className="text-5xl font-bold text-slate-500 dark:text-white text-center pb-20">
 					{t('title')}

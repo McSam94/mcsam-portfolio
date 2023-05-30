@@ -10,59 +10,56 @@ const Projects: React.FC = () => {
 	const { t } = useTranslation('projects')
 
 	return (
-		<>
-			<div
-				id="projects"
-				className="w-full flex justify-center bg-gray-100/50 dark:bg-gray-500/50"
-			>
-				<div className="w-full lg:w-[85vw] max-w-[100rem] flex flex-col items-center h-full py-20">
-					<div className="text-5xl font-bold text-slate-500 dark:text-white text-center pb-10">
-						{t('title')}
-					</div>
-					<div className="flex flex-row max-w-[100vw] overflow-x-auto h-full py-5">
-						{PROJECTS.map(project => (
-							<div
-								key={project.name}
-								className="basis-2/3 ml-4 flex justify-center h-fit mb-2 dark:bg-black/30 rounded-lg"
-							>
-								<div className="ml-4 shadow-lg rounded-lg cursor-pointer w-[20rem]">
-									<div className="w-full h-60 relative">
-										<Image
-											src={`/projects/${project.logo}.svg`}
-											layout="fill"
-											objectFit="cover"
-											alt={project.name}
-										/>
+		<div id="projects" className="w-full flex justify-center">
+			<div className="w-full lg:w-[85vw] max-w-[100rem] flex flex-col items-center h-full py-20">
+				<div className="text-5xl font-bold text-slate-500 dark:text-white text-center pb-10">
+					{t('title')}
+				</div>
+				<div className="flex flex-row max-w-[100vw] overflow-x-auto h-full py-5">
+					{PROJECTS.map(project => (
+						<div
+							key={project.name}
+							className="basis-2/3 ml-4 flex justify-center h-fit mb-2 dark:bg-black/30 rounded-lg"
+						>
+							<div className="ml-4 shadow-lg rounded-lg cursor-pointer w-[20rem]">
+								<div className="w-full h-60 relative">
+									<Image
+										src={`/projects/${project.logo}.svg`}
+										layout="fill"
+										objectFit="cover"
+										alt={project.name}
+									/>
+								</div>
+								<div className="flex flex-col p-4">
+									<div className="text-2xl font-semibold">{project.name}</div>
+									<div className="flex flex-row space-x-4 my-2">
+										{project.stacks.map(stack => (
+											<div
+												key={stack}
+												className="flex"
+												data-tip={startCase(stack)}
+											>
+												<Image
+													src={`/skills/${stack}.svg`}
+													width="30"
+													height="30"
+													alt={stack}
+												/>
+											</div>
+										))}
 									</div>
-									<div className="flex flex-col p-4">
-										<div className="text-2xl font-semibold">{project.name}</div>
-										<div className="flex flex-row space-x-4 my-2">
-											{project.stacks.map(stack => (
-												<div
-													key={stack}
-													className="flex"
-													data-tip={startCase(stack)}
-												>
-													<Image
-														src={`/skills/${stack}.svg`}
-														width="30"
-														height="30"
-														alt={stack}
-													/>
+									<div className="flex flex-row justify-between mt-4">
+										{project.gitLink ? (
+											<Link href={project.gitLink} passHref>
+												<div className="flex flex-row text-gray-700 p-2 bg-slate-100 hover:bg-slate-200 rounded-lg">
+													<span className="material-icons">source</span>
+													<span className="text-base ml-2">
+														{t('sourceCode')}
+													</span>
 												</div>
-											))}
-										</div>
-										<div className="flex flex-row justify-between mt-4">
-											{project.gitLink ? (
-												<Link href={project.gitLink} passHref>
-													<div className="flex flex-row text-gray-700 p-2 bg-slate-100 hover:bg-slate-200 rounded-lg">
-														<span className="material-icons">source</span>
-														<span className="text-base ml-2">
-															{t('sourceCode')}
-														</span>
-													</div>
-												</Link>
-											) : null}
+											</Link>
+										) : null}
+										{project.productionLink ? (
 											<Link href={project.productionLink} passHref>
 												<a href="replace" target="_blank">
 													<div className="flex flex-row text-orange-700 p-2 bg-slate-100 hover:bg-slate-200 rounded-lg">
@@ -73,16 +70,16 @@ const Projects: React.FC = () => {
 													</div>
 												</a>
 											</Link>
-										</div>
+										) : null}
 									</div>
 								</div>
 							</div>
-						))}
-					</div>
+						</div>
+					))}
 				</div>
 			</div>
 			<ReactTooltip />
-		</>
+		</div>
 	)
 }
 

@@ -31,7 +31,7 @@ interface project {
 	logo: string
 	stacks: Array<string>
 	gitLink?: string
-	productionLink: string
+	productionLink?: string
 }
 
 export const PROJECTS: Array<project> = [
@@ -48,7 +48,7 @@ export const PROJECTS: Array<project> = [
 		logo: 'emailButcher',
 		stacks: ['next', 'materialUI', 'nest', 'typescript'],
 		gitLink: 'https://github.com/McSam94/email-butcher',
-		productionLink: 'https://www.emailbutcher.com/',
+		// productionLink: 'https://www.emailbutcher.com/',
 	},
 	{
 		name: 'TiTi Official Website',

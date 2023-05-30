@@ -35,7 +35,11 @@ const Introduction: React.FC = () => {
 	return (
 		<div className="h-screen w-full flex justify-center px-10 lg:px-20">
 			<div className="w-[100vw] lg:w-[85vw] max-w-[100rem] flex flex-col lg:flex-row items-center h-full">
-				<div className={cn({ introduction: shouldAnimate })}>
+				<div
+					className={cn('min-w-[300px] lg:min-w-[500px]', {
+						introduction: shouldAnimate,
+					})}
+				>
 					{isMobile ? (
 						<ProgrammerSvg
 							width="300"

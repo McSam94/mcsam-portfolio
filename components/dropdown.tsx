@@ -87,7 +87,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 				tabIndex={0}
 				ref={dropdownRef}
 				className={cn(
-					'px-4 py-2 border rounded-lg flex flex-row items-center cursor-pointer',
+					'px-4 py-2 rounded-lg flex flex-row items-center cursor-pointer',
 					className
 				)}
 				onClick={onDropdownClick}

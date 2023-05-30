@@ -1,4 +1,5 @@
 import * as React from 'react'
+import cn from 'classnames'
 import useTranslation from 'next-translate/useTranslation'
 import { useRouter } from 'next/router'
 import { useTheme } from 'next-themes'
@@ -45,16 +46,31 @@ const MenuItem: React.FC<MenuItemProps> = ({ menu }) => {
 	)
 }
 
+const enum Theme {
+	LIGHT = 'light',
+	DARK = 'dark',
+	SYSTEM = 'system',
+}
+
+const THEME = [Theme.LIGHT, Theme.DARK, Theme.SYSTEM]
+
 const Header: React.FC = () => {
 	const { push } = useRouter()
 	const { isMobile } = useMobile()
 	const { theme, setTheme } = useTheme()
 	const { lang } = useTranslation()
 
-	const isLightMode = React.useMemo(() => theme === 'light', [theme])
+	const themeIcon = React.useMemo(() => {
+		if (theme === Theme.SYSTEM) return 'settings_suggest'
+
+		if (theme === Theme.DARK) return 'dark_mode'
+
+		return 'light_mode'
+	}, [theme])
 
 	const onThemeToggle = React.useCallback(() => {
-		setTheme(theme === 'dark' ? 'light' : 'dark')
+		const nextThemeIndex = THEME.findIndex(_theme => _theme === theme) + 1
+		setTheme(THEME[nextThemeIndex % THEME.length])
 	}, [setTheme, theme])
 
 	const onTranslate = React.useCallback(
@@ -91,23 +107,22 @@ const Header: React.FC = () => {
 				<div
 					role="button"
 					tabIndex={0}
-					className="flex cursor-pointer bg-slate-200/50 dark:bg-slate-500 rounded-full p-2 w-10 h-10"
+					className="flex cursor-pointer shadow-neumorphism-slate-100-xs dark:shadow-neumorphism-slate-800-xs hover:shadow-none dark:hover:shadow-none rounded-full p-2 w-10 h-10"
 					onClick={onThemeToggle}
 					onKeyDown={onThemeToggle}
 				>
-					{!isLightMode ? (
-						<span className="material-icons text-gray-100 text-md">
-							dark_mode
-						</span>
-					) : null}
-					{isLightMode ? (
-						<span className="material-icons text-yellow-500 text-md">
-							light_mode
-						</span>
-					) : null}
+					<span
+						className={cn('material-icons text-md', {
+							'text-gray-100': theme === Theme.DARK,
+							'text-yellow-500': theme === Theme.LIGHT,
+							'text-black': theme === Theme.SYSTEM,
+						})}
+					>
+						{themeIcon}
+					</span>
 				</div>
 				<Dropdown
-					className="w-[82px]"
+					className="w-[82px] shadow-neumorphism-slate-100-xs dark:shadow-neumorphism-slate-800-xs hover:shadow-none dark:hover:shadow-none"
 					options={LANG}
 					onSelect={onTranslate}
 					renderSelected={option => <SelectedLang option={option} />}

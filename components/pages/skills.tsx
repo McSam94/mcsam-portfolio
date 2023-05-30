@@ -35,7 +35,7 @@ interface SkillBoxProps {
 
 const SkillBox: React.FC<SkillBoxProps> = ({ skill }) => {
 	return (
-		<div className="flex flex-row items-center space-x-4 p-4 rounded-lg shadow-sm hover:shadow-lg cursor-pointer bg-slate-100 dark:bg-gray-600 w-[12rem]">
+		<div className="flex flex-row items-center space-x-4 p-4 rounded-lg bg-white-50 shadow-neumorphism-white-50-md dark:shadow-neumorphism-gray-700-md hover:shadow-none dark:hover:shadow-none cursor-pointer w-[12rem]">
 			<Image src={`/skills/${skill}.svg`} alt={skill} width="30" height="30" />
 			<div
 				data-tip={startCase(skill)}
@@ -50,12 +50,12 @@ const SkillBox: React.FC<SkillBoxProps> = ({ skill }) => {
 const Skills: React.FC = () => {
 	const { t } = useTranslation('skills')
 	return (
-		<div id="skills" className="w-full h-auto flex justify-center py-20">
+		<div id="skills" className="w-full h-auto flex justify-center pt-20">
 			<div className="w-full lg:w-[85vw] max-w-[100rem] flex flex-col items-center h-full">
-				<div className="text-5xl font-bold text-slate-500 dark:text-white text-center pb-10">
+				<div className="text-5xl font-bold text-slate-500 dark:text-white text-center py-10">
 					{t('title')}
 				</div>
-				<div className="flex flex-row lg:flex-wrap mt-10 max-w-[100vw] overflow-x-auto">
+				<div className="flex flex-row lg:flex-wrap max-w-[100vw] overflow-x-auto py-20">
 					{SKILLS.map(skill => (
 						<div
 							key={skill}

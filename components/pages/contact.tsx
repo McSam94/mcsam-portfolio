@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
 	const [isSubmitted, setIsSubmitted] = React.useState<boolean>(false)
 
 	const recaptchaTheme = React.useMemo(
-		() => (theme === 'system' ? 'light' : theme),
+		() => (theme === 'system' ? 'dark' : theme),
 		[theme]
 	)
 
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
 		control,
 		handleSubmit,
 		register,
-		formState: { errors, isValid },
+		formState: { errors },
 	} = useForm({
 		mode: 'onChange',
 		resolver: yupResolver(contactSchema),
@@ -116,33 +116,27 @@ const Contact: React.FC = () => {
 				>
 					<div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 justify-between w-full">
 						<input
-							className={cn(
-								'p-4 border border-gray-500 dark:border-black/50 rounded-lg basis-1/2',
-								{
-									'border-red-400': !!errors.name,
-								}
-							)}
+							className={cn('p-4 border rounded-lg basis-1/2', {
+								'border-red-400': !!errors.name,
+								'border-gray-500 dark:border-black/50': !errors.name,
+							})}
 							placeholder="Name"
 							{...register('name')}
 						/>
 						<input
-							className={cn(
-								'p-4 border border-gray-500 dark:border-black/50 rounded-lg basis-1/2',
-								{
-									'border-red-400': !!errors.email,
-								}
-							)}
+							className={cn('p-4 border rounded-lg basis-1/2', {
+								'border-red-400': !!errors.email,
+								'border-gray-500 dark:border-black/50': !errors.email,
+							})}
 							placeholder="Email"
 							{...register('email')}
 						/>
 					</div>
 					<textarea
-						className={cn(
-							'p-4 border border-gray-500 dark:border-black/50 rounded-lg w-full',
-							{
-								'border-red-400': !!errors.message,
-							}
-						)}
+						className={cn('p-4 border rounded-lg w-full', {
+							'border-red-400': !!errors.message,
+							'border-gray-500 dark:border-black/50': !errors.message,
+						})}
 						rows={10}
 						placeholder="Message"
 						{...register('message')}
@@ -153,7 +147,7 @@ const Contact: React.FC = () => {
 						control={control}
 						render={({ field: { onChange } }) => (
 							<ReCAPTCHA
-								className="flex justify-center"
+								className="flex justify-center z-50"
 								size="normal"
 								sitekey={process.env.RECAPTCHA_SITE_KEY ?? ''}
 								theme={recaptchaTheme}
@@ -163,15 +157,11 @@ const Contact: React.FC = () => {
 					/>
 					<button
 						type="submit"
-						disabled={!isValid || isSubmitting}
-						className={cn(
-							'py-4 bg-orange-600 rounded-lg text-white disabled:bg-orange-100 disabled:opacity-70 w-full',
-							{
-								'cursor-not-allowed': !isValid,
-							}
-						)}
+						disabled={isSubmitting}
+						className="py-4 shadow-neumorphism-white-50-md dark:shadow-neumorphism-gray-700-md hover:shadow-none dark:hover:shadow-none rounded-lg text-black/75 dark:text-white disabled:bg-orange-100 disabled:opacity-70 disabled:cursor-not-allowed w-32 flex items-center justify-center space-x-3"
 					>
-						{t('send')}
+						<span>{t('send')}</span>
+						<span className="material-icons text-md">send</span>
 					</button>
 				</form>
 			</div>
