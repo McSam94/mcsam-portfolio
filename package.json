@@ -6,6 +6,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
+		"analyze": "ANALYZE=true yarn build",
 		"lint": "next lint",
 		"prepare": "husky install .husky",
 		"eslint": "eslint --fix",
@@ -14,6 +15,7 @@
 	"dependencies": {
 		"@emailjs/browser": "^3.4.0",
 		"@hookform/resolvers": "^2.8.8",
+		"@next/bundle-analyzer": "^13.4.6",
 		"@vercel/analytics": "^0.1.11",
 		"classnames": "^2.3.1",
 		"lodash.debounce": "^4.0.8",

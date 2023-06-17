@@ -1,9 +1,11 @@
 import * as React from 'react'
-import Header from '@/components/pages/header'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
+const Header = dynamic(() => import('@/components/pages/header'), {
+	ssr: false,
+})
 const Introduction = dynamic(() => import('@/components/pages/introduction'))
 const Experiences = dynamic(() => import('@/components/pages/experiences'))
 const Skills = dynamic(() => import('@/components/pages/skills'))

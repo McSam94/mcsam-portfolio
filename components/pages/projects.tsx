@@ -2,9 +2,11 @@ import * as React from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import Link from 'next/link'
-import ReactTooltip from 'react-tooltip'
+import dynamic from 'next/dynamic'
 import startCase from 'lodash.startcase'
 import { PROJECTS } from '@/config/constants'
+
+const ReactTooltip = dynamic(() => import('react-tooltip'), { ssr: false })
 
 const Projects: React.FC = () => {
 	const { t } = useTranslation('projects')
