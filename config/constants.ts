@@ -69,6 +69,6 @@ export const PROJECTS: Array<project> = [
 		logo: 'jupiterBot',
 		stacks: ['solanaWeb3', 'next', 'tailwind', 'typescript', 'blockly'],
 		gitLink: 'https://github.com/McSam94/jupiter-bot',
-		productionLink: 'https://jupiter-bot.vercel.app/',
+		// productionLink: 'https://jupiter-bot.vercel.app/',
 	},
 ]
