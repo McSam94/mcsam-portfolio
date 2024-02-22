@@ -28,7 +28,7 @@ const Projects: React.FC = () => {
 									<Image
 										src={`/projects/${project.logo}.svg`}
 										layout="fill"
-										objectFit="cover"
+										objectFit="contain"
 										alt={project.name}
 									/>
 								</div>

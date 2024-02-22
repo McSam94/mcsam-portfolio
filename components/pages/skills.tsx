@@ -2,32 +2,7 @@ import * as React from 'react'
 import Image from 'next/image'
 import startCase from 'lodash.startcase'
 import useTranslation from 'next-translate/useTranslation'
-
-const SKILLS = [
-	'react',
-	'redux',
-	'reactNative',
-	'next',
-	'gatsby',
-	'flutter',
-	'vue',
-	'webpack',
-	'express',
-	'nest',
-	'typescript',
-	'git',
-	'docker',
-	'circleCI',
-	'jest',
-	'sass',
-	'tailwind',
-	'bootstrap',
-	'materialUI',
-	'chromeExtension',
-	'solanaWeb3',
-	'serumAnchor',
-	'blockly',
-]
+import { SKILLS } from '@/config/constants'
 
 interface SkillBoxProps {
 	skill: typeof SKILLS[number]
